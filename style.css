@@ -1,10 +1,7 @@
-/* css reset 清除樣式 */
-/* ---------------css reset頭--------------- */
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+/* ====================<< Mode >>==================== */
+/* ========== CSS Reset Start (Meyer + Custom) ========== */
 
+/* --- Reset default styles for common HTML elements --- */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -25,126 +22,294 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
+
+/* --- Ensure HTML5 elements are block-level --- */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
+/* --- Set base line-height for body --- */
 body {
 	line-height: 1;
 }
+
+/* --- Remove default list styling --- */
 ol, ul {
 	list-style: none;
 }
+
+/* --- Remove default quote styling --- */
 blockquote, q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote::before, blockquote::after,
+q::before, q::after {
 	content: '';
 	content: none;
 }
+
+/* --- Reset table spacing --- */
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-/* ---------------css reset尾--------------- */
-/* ---------------固定盒模型模式--------------- */
-*,*:before,*:after{
-    box-sizing: border-box;
-}
-/* ---------------固定盒模型模式--------------- */
-/* ---------------除錯模式--------------- */
-/* *{
-    outline: 1px solid black;
-} */
-/* ---------------除錯模式--------------- */
 
-.wrap{
-    width: 1302px;
-    height: 932px;
+/* ========== CSS Reset End ========== */
+
+
+/* ========== Basic Utility Styles ========== */
+
+/* --- Set font-family for body --- */
+body {
+	font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+}
+
+/* --- Remove underline and default link color --- */
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* --- Responsive image scaling --- */
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+/* --- Remove form element default styles --- */
+input, button, textarea, select {
+	font: inherit;
+	color: inherit;
+	border: none;
+	outline: none;
+	background: none;
+}
+
+/* --- Show pointer cursor on buttons --- */
+button {
+	cursor: pointer;
+}
+
+/* --- Use border-box for all elements to include padding/border in size --- */
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+/* ========== Debug Tools (for development only) ========== */
+
+/* --- Add 1px outline to all elements for layout debugging --- */
+/* * {
+	outline: 1px solid black;
+} */
+
+/* ====================<< Mode >>==================== */
+
+/* .wrap{
+    width: 100vw;
+    height: 100vh;
     margin: auto;
     background: rgb(112,241,174);
     display: flex;
+    justify-content: center;
     align-items: center;
 }
-.title{
-    display: flex;
-    color: rgb(31,77,65);
-    margin-left: 128px;
-    margin-right: 88px;
-}
-.title h1{
-    writing-mode: vertical-lr;
-    font-size: 60px;
-    margin-right: 25px;
-}
-.title p{
-    writing-mode: vertical-lr;
-    font-size: 30px;
-    margin-top: 10px;
-    letter-spacing: 10px;
-    font-weight: bold;
-}
 .card{
-    width: 717px;
-    height: 419px;
+    width: 60%;
     background: rgb(237,237,237);
     display: flex;
     flex-direction:column;
-    justify-content: space-between;
+    gap: 1.5rem;
     border-radius: 15px;
     font-weight: bold;
     padding: 35px;
-    overflow:hidden;
-    position:relative;
     box-shadow: 0px 0px 20px gray ;
 }
-.card img{
-    width: 180px;
-    height: auto;
-}
-.card p{
-    font-size: 30px;
-    color: rgb(73,118,128);
-    margin-left: 10px;
+.card h1{
+    font-size: 3rem;
+    color: rgb(39,93,76);
 }
 .card h2{
-    font-size: 40px;
+    font-size: 2rem;
     color: rgb(39,93,76);
-    margin-left: 110px;
+}
+.card p{
+    color: rgb(73,118,128);
 }
 .card ul{
-    font-size: 20px;
     color: rgb(82,131,141);
-    margin-left: 10px;
+} */
+
+/* ================== Variables ================== */
+:root {
+    --color-primary: #1E3A8A;    /* 皇家藍 */
+    --color-secondary: #3B82F6;  /* 天空藍 */
+    --color-accent: #60A5FA;     /* 淡藍 */
+    --color-bg: #F9FAFB;         /* 背景白 */
+    --color-text: #111827;       /* 主要文字 */
+    --color-text-secondary: #374151; /* 次文字 */
+    --card-radius: 16px;
+    --card-padding: 24px;
+    --card-max-width: 400px;
+    --transition-speed: 0.3s;
 }
-.card li{
+
+/* ================== Body / Wrapper ================== */
+body {
+    background-color: var(--color-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ================== Card ================== */
+.card {
+    background-color: #ffffff;
+    max-width: var(--card-max-width);
+    padding: var(--card-padding);
+    border-radius: var(--card-radius);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* ================== Title ================== */
+.title {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.title p:first-child {
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.title p:last-child {
+    color: var(--color-secondary);
+    font-size: 0.9rem;
+}
+
+/* ================== Name ================== */
+.name {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.name h1 {
+    color: var(--color-primary);
+    font-size: 1.8rem;
+    margin-bottom: 4px;
+}
+
+.name h2 {
+    color: var(--color-secondary);
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+/* ================== Info List ================== */
+.info {
+    margin-bottom: 24px;
+}
+
+.info li {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.info li span:first-child {
+    font-weight: 600;
+    width: 100px;
+    color: var(--color-text-secondary);
+}
+
+.info li a {
+    color: var(--color-primary);
+    transition: color var(--transition-speed) ease;
+}
+
+.info li a:hover {
+    color: var(--color-secondary);
+}
+
+/* ================== Service ================== */
+.service h3 {
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.service-list li {
+    margin-bottom: 16px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.service-list li.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-list .cn {
+    color: var(--color-text);
+    font-weight: 500;
     margin-bottom: 2px;
 }
-.box1,.box2,.box3{
-    clip-path:polygon(25% 0%, 75% 0%,100% 50%,75% 100%,25% 100%,0% 50%);
-    position:absolute
+
+.service-list .en {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
 }
-.box1{
-    width:256px;
-    height:220px;
-    background: rgb(87, 190, 127);
-    top:0px;
-    top: -60px;
-    right: -120px;
+
+/* ================== Button ================== */
+.btn {
+    display: block;
+    text-align: center;
+    margin: 20px auto 0 auto;
+    padding: 10px 18px;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all var(--transition-speed) ease;
 }
-.box2{
-    width:200px;
-    height:170px;
-    background: rgb(134, 209, 170);
-    top: 170px;
-    right: -80px;
+
+.btn:hover {
+    background-color: var(--color-secondary);
+    box-shadow: 0 4px 12px rgba(96,165,250,0.3);
 }
-.box3{
-    width:150px;
-    height:128px;
-    background: rgb(114, 156, 146);
-    top: 100px;
-    right: 80px;
+
+/* ================== Responsive ================== */
+@media (max-width: 450px) {
+    .card {
+        padding: 16px;
+    }
+    .info li span:first-child {
+        width: 100%;
+        margin-bottom: 2px;
+    }
+    .service-list li {
+        margin-bottom: 12px;
+    }
 }
+

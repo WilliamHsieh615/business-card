@@ -1,34 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>謝文育 William Hsieh｜Software Engineer｜Business Card</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="wrap">
-        <div class="title">
-            <h1>HEX SCHOOL</h1>
-            <p>網頁名片設計</p>
-        </div>
-        
         <div class="card">
-            <img src="logo.png" alt="六角學院">
-            <p>學員 Trainee</p>
-            <h2>William Hsieh</h2>
-            <ul>
-                <li>波利馬資訊科技有限公司</li>
-                <li>公司電話：07-531350</li>
-                <li>service@hexschool.com</li>
-                <li>通訊地址：(803) 高雄是鹽埕區七賢三路123號2樓</li>
+            <div class="title">
+                <p>軟體工程師</p>
+                <p>Software Engineer</p>
+            </div>
+            <div class="name">
+                <h1>謝文育</h1>
+                <h2>William Hsieh</h2>
+            </div>
+            <ul class="info">
+                <li class="phone">
+                    <span>手機號碼：</span>
+                    <a href="tel:0988098892">0988098892</a>
+                </li>
+                <li class="email">
+                    <span>電子信箱：</span>
+                    <a href="mailto:best5946@gmail.com">best5946@gmail.com</a>
+                </li>
+                <li class="address">
+                    <span>通訊地址：</span>
+                    <address>(551)南投縣名間鄉彰南路361-147號</address>
+                </li>
             </ul>
-            <div class="box1"></div>
-            <div class="box2"></div>
-            <div class="box3"></div>
-
+            <div class="service">
+                <h3>服務項目 Services</h3>
+                <ul class="service-list">
+                    <li>
+                        <p class="cn">建置現代化響應式網站，支援手機、平板與桌機</p>
+                        <p class="en">Full-Stack Web Development</p>
+                    </li>
+                    <li>
+                        <p class="cn">系統設計與架構規劃，確保高可用性與擴充性</p>
+                        <p class="en">System Design & Architecture</p>
+                    </li>
+                    <li>
+                        <p class="cn">提供持續運維、性能監控及問題排查，確保服務穩定運行</p>
+                        <p class="en">Maintenance & Operations</p>
+                    </li>
+                </ul>
+            </div>
+            <a href="#" id="download-img" class="btn">下載名片圖片</a>
+            <a href="contact.vcf" download="謝文育.vcf" class="btn" type="text/vcard">加入聯絡人</a>
         </div>
     </div>
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script>
+        document.getElementById('download-img').addEventListener('click', function (e) {
+            e.preventDefault(); // 防止跳轉
+            const card = document.querySelector('.card'); // 目標卡片元素
+
+            html2canvas(card, {
+                scale: 2,           // 放大解析度更清晰
+                useCORS: true,      // 如果有跨域圖片
+                backgroundColor: null
+            }).then(canvas => {
+                // 生成圖片 URL
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = '謝文育_名片.png'; // 下載檔名
+                link.click();
+            });
+        });
+    </script>
+    <script>
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.service-list li').forEach((item, index) => {
+                setTimeout(() => item.classList.add('visible'), index * 200);
+            });
+        });
+    </script>
+
 </body>
+
 </html>
