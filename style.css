@@ -105,42 +105,6 @@ button {
 } */
 
 /* ====================<< Mode >>==================== */
-
-/* .wrap{
-    width: 100vw;
-    height: 100vh;
-    margin: auto;
-    background: rgb(112,241,174);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.card{
-    width: 60%;
-    background: rgb(237,237,237);
-    display: flex;
-    flex-direction:column;
-    gap: 1.5rem;
-    border-radius: 15px;
-    font-weight: bold;
-    padding: 35px;
-    box-shadow: 0px 0px 20px gray ;
-}
-.card h1{
-    font-size: 3rem;
-    color: rgb(39,93,76);
-}
-.card h2{
-    font-size: 2rem;
-    color: rgb(39,93,76);
-}
-.card p{
-    color: rgb(73,118,128);
-}
-.card ul{
-    color: rgb(82,131,141);
-} */
-
 /* ================== Variables ================== */
 :root {
     --color-primary: #1E3A8A;    /* 皇家藍 */
@@ -157,7 +121,8 @@ button {
 
 /* ================== Body / Wrapper ================== */
 body {
-    background-color: var(--color-bg);
+    /* background-color: var(--color-bg); */
+    background: url("./images/moroccan-flower-dark.png");
     display: flex;
     justify-content: center;
     align-items: center;
@@ -173,59 +138,70 @@ body {
 
 /* ================== Card ================== */
 .card {
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
+    background: url("./images/moroccan-flower.png");
     max-width: var(--card-max-width);
     padding: var(--card-padding);
     border-radius: var(--card-radius);
     box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-    position: relative;
     overflow: hidden;
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: scale(105%);
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
-/* ================== Title ================== */
-.title {
-    text-align: center;
-    margin-bottom: 12px;
-}
-
-.title p:first-child {
-    color: var(--color-primary);
-    font-weight: bold;
-    font-size: 1.1rem;
-}
-
-.title p:last-child {
-    color: var(--color-secondary);
-    font-size: 0.9rem;
+/* ================= Picture ================= */
+.box {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    overflow: hidden;
+    margin: 20px auto;
 }
 
 /* ================== Name ================== */
 .name {
     text-align: center;
-    margin-bottom: 20px;
+    margin: 20px;
+    font-weight: bold;
 }
 
-.name h1 {
+.name .chinese {
     color: var(--color-primary);
     font-size: 1.8rem;
-    margin-bottom: 4px;
+    margin: 10px;
 }
 
-.name h2 {
+.name .english {
     color: var(--color-secondary);
     font-size: 1.1rem;
     font-weight: 400;
 }
 
+/* ================== Title ================== */
+.title {
+    text-align: center;
+    margin: 20px;
+}
+
+.title .chinese {
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.title .english {
+    color: var(--color-secondary);
+    font-size: 0.9rem;
+}
+
 /* ================== Info List ================== */
 .info {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .info li {
@@ -254,6 +230,7 @@ body {
 .service h3 {
     color: var(--color-primary);
     font-size: 1.1rem;
+    font-weight: bold;
     margin-bottom: 12px;
     text-align: center;
 }
@@ -262,7 +239,7 @@ body {
     margin-bottom: 16px;
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.5s ease;
+    transition: all ease;
 }
 
 .service-list li.visible {
@@ -270,34 +247,35 @@ body {
     transform: translateY(0);
 }
 
-.service-list .cn {
+.service-list .chinese {
     color: var(--color-text);
     font-weight: 500;
     margin-bottom: 2px;
 }
 
-.service-list .en {
+.service-list .english {
     color: var(--color-text-secondary);
     font-size: 0.85rem;
 }
 
-/* ================== Button ================== */
-.btn {
-    display: block;
-    text-align: center;
-    margin: 20px auto 0 auto;
-    padding: 10px 18px;
-    background-color: var(--color-primary);
-    color: #ffffff;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: all var(--transition-speed) ease;
+/* ================== Icon ================== */
+.icon {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
 }
 
-.btn:hover {
-    background-color: var(--color-secondary);
-    box-shadow: 0 4px 12px rgba(96,165,250,0.3);
+.icon a:hover {
+    transform: scale(110%);
+    transition: all 0.5s ease;
 }
+
+.icon img {
+    width: 38px;
+    height: 38px;
+}
+
 
 /* ================== Responsive ================== */
 @media (max-width: 450px) {
@@ -306,7 +284,7 @@ body {
     }
     .info li span:first-child {
         width: 100%;
-        margin-bottom: 2px;
+        margin-bottom: 5px;
     }
     .service-list li {
         margin-bottom: 12px;
